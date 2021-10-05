@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'widgets/home_navigation_bar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../bloc/home_navigation/home_navigation_cubit.dart';
+import '../../bloc/user_posts/user_posts_bloc.dart';
 import '../additional/additional_page.dart';
 import '../home/home_page.dart';
+import 'widgets/home_navigation_bar.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -19,9 +21,12 @@ class MainPage extends StatelessWidget {
         builder: (context, index) {
           return IndexedStack(
             index: index,
-            children: const [
-              HomePage(),
-              AdditionalPage(),
+            children: [
+              BlocProvider(
+                create: (_) => UserPostsBloc(),
+                child: const HomePage(),
+              ),
+              const AdditionalPage(),
             ],
           );
         },

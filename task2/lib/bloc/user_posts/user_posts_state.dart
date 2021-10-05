@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../../data/models/post.dart';
 
 part 'user_posts_state.freezed.dart';

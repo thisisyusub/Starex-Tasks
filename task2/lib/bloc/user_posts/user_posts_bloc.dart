@@ -1,11 +1,12 @@
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
+
 import './user_posts_event.dart';
 import './user_posts_state.dart';
-import 'package:get_it/get_it.dart';
 import '../../data/contractors/i_post_repository.dart';
-import 'package:bloc_concurrency/bloc_concurrency.dart';
 
-class UserPostsBloc extends Bloc<UserPostsRequested, UserPostsState> {
+class UserPostsBloc extends Bloc<UserPostsEvent, UserPostsState> {
   final _postsRepository = GetIt.I.get<IPostRepository>();
 
   UserPostsBloc() : super(const UserPostsState.initial()) {
@@ -22,6 +23,12 @@ class UserPostsBloc extends Bloc<UserPostsRequested, UserPostsState> {
         }
       },
       transformer: restartable(),
+    );
+
+    on<RefreshToInitialRequested>(
+      (event, emit) => emit(
+        const UserPostsState.initial(),
+      ),
     );
   }
 }
