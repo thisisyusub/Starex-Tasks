@@ -16,15 +16,22 @@ dependencies:
   dio: ^4.0.0
   injectable: ^1.5.0
   cupertino_icons: ^1.0.2
+  freezed_annotation: ^0.14.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   injectable_generator: ^1.5.2
   flutter_lints: ^1.0.0
+  freezed: ^0.14.5
+  build_runner: ^2.1.4
+  json_serializable: ^5.0.2
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
