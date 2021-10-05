@@ -14,7 +14,9 @@ class PostsList extends StatelessWidget {
   Widget build(BuildContext context) {
     if (posts.isEmpty) {
       return const Expanded(
-        child: Text('Empty!'),
+        child: Center(
+          child: Text('Empty!'),
+        ),
       );
     }
 

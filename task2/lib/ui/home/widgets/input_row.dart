@@ -54,11 +54,13 @@ class _InputRowState extends State<InputRow> {
         IconButton(
           icon: const Icon(Icons.search),
           onPressed: () {
-            userPostsBloc.add(
-              UserPostsRequested(
-                int.parse(idController.text),
-              ),
-            );
+            if (idController.text.trim().isNotEmpty) {
+              userPostsBloc.add(
+                UserPostsRequested(
+                  int.parse(idController.text),
+                ),
+              );
+            }
           },
         ),
       ],
