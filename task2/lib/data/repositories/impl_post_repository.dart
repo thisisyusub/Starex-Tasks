@@ -7,7 +7,7 @@ import '../models/post.dart';
 import '../core/either.dart';
 import '../data_sources/post_data_source.dart';
 
-@lazySingleton
+@LazySingleton(as: IPostRepository)
 class ImplPostRepository extends IPostRepository {
   ImplPostRepository(this.postDataSource);
 
